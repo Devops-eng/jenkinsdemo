@@ -20,6 +20,6 @@ void createJobs() {
         def projectConfig = yaml.loadAs(file.readToString(), pc)
         def project = projectConfig.project.replaceAll(' ', '-')
 
-        PullRequestTemplate.create(job("${project}-Pull-Request"), projectConfig)
+        temp.create(job("${project}-Pull-Request"), projectConfig)
     }
 }
