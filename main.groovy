@@ -15,7 +15,9 @@ void createJobs() {
 
     // Create/update a pull request job for each config file
     configFiles.each { file ->
-        def projectConfig = yaml.loadAs(file.readToString(), ProjectConfig.class)
+        def pc = load models/ProjectConfig.groovy
+        def temp = load templates/PullRequestTemplate.groovy
+        def projectConfig = yaml.loadAs(file.readToString(), pc)
         def project = projectConfig.project.replaceAll(' ', '-')
 
         PullRequestTemplate.create(job("${project}-Pull-Request"), projectConfig)
