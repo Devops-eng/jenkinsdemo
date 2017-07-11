@@ -1,5 +1,5 @@
-import models.ProjectConfig.*
-import templates.PullRequestTemplate.*
+import models.*
+import templates.*
 
 import hudson.FilePath
 import org.yaml.snakeyaml.Yaml
